@@ -1,0 +1,39 @@
+create database clinica;
+
+use  clinica;
+
+create table usuario(
+	usua_id int auto_increment primary key,
+    usua_nome varchar(50),
+    usua_email varchar(50),
+    usua_senha varchar(50),
+    usua_tipo varchar(10)
+);
+
+create table medico(
+	medi_id int auto_increment primary key,
+    medi_crm int,
+    medi_especialidade varchar(20),
+    medi_id_usuario int,
+    FOREIGN KEY (medi_id_usuario) REFERENCES usuario(usua_id)
+);
+
+create table paciente(
+	paci_id int auto_increment primary key,
+    paci_cpf varchar(20),
+    paci_telefone varchar(15),
+    paci_id_usuario int,
+    FOREIGN KEY (paci_id_usuario) REFERENCES usuario(usua_id)
+);
+
+create table consulta(
+	cons_id int auto_increment primary key,
+    cons_data date,
+    cons_descricao varchar(50),
+    cons_id_paciente int,
+    cons_id_medico int,
+    FOREIGN KEY (cons_id_paciente) REFERENCES paciente(paci_id),
+    FOREIGN KEY (cons_id_medico) REFERENCES medico(medi_id)
+);
+
+select * from usuario;
