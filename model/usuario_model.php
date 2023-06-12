@@ -14,7 +14,7 @@ class UsuarioModel
     public function cadastrar()
     {
         include 'DAO/usuario_dao.php';
-        $dao = new UsuarioDAO(); // conectando com o banco
+        $dao = new UsuarioDAO(); 
         $dao->insert($this);
     }
 

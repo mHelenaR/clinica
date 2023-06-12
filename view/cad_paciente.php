@@ -9,14 +9,14 @@
 </head>
 
 <body>
-    <form method="post" action="/salvar">
-        <input id="tipo" name="tipo" type="hidden" value="paciente"/>
+    <form method="post" action="/cadastrar">
+        <input id="tipo" name="tipo" type="hidden" value="paciente" />
 
         <label for="nome">Nome Completo: </label>
         <input id="nome" name="nome" type="text" />
 
         <label for="email">E-mail: </label>
-        <input id="email" name="email" type="email" />
+        <input id="email" name="email" type="" />
 
         <label for="cpf">CPF: </label>
         <input id="cpf" name="cpf" type="text" />
@@ -29,6 +29,8 @@
 
         <button type="submit">Cadastrar</button>
     </form>
+
+    
 </body>
 
 </html>

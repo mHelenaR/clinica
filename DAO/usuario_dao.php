@@ -1,6 +1,7 @@
 <?php
 
 include "utils/conexao.php";
+include 'controller/paciente_controller.php';
 class UsuarioDAO
 {
     private $conexao;
@@ -21,8 +22,13 @@ class UsuarioDAO
         $stmt->execute();
 
         if ($model->usua_tipo == 'paciente') {
+            
+            $paciente = new PacienteController;
+            $paciente ->cadastrarPaciente($this->conexao->lastInsertId(), $this->conexao);
+      
         } else if ($model->usua_tipo == 'medico') {
         }
+       // return $this->conexao->lastInsertId();
     }
 
     public function update(UsuarioModel $model)

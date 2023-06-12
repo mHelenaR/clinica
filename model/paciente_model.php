@@ -9,6 +9,13 @@
 class PacienteModel
 {
     public $paci_cpf, $paci_telefone, $paci_id_usuario;
+
+    public function cadastrar(PDO $conexao)
+    {
+        include 'DAO/paciente_dao.php';
+        $dao = new PacienteDAO($conexao); 
+        $dao->insert($this);
+    }
 }
 
 ?>

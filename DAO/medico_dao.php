@@ -1,7 +1,7 @@
 <?php
 
 include "utils/conexao.php";
-class UsuarioDAO
+class MedicoDAO
 {
     /*    
     medi_crm int,

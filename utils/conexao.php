@@ -3,7 +3,7 @@ class Conexao{
     public static function ConexaoBanco()
     {
         $nomeBanco = "clinica";
-        $senha = "root";
+        $senha = "123456";
         $usuario = "root";
         $hostName = "localhost:3306";
         $dataSource = "mysql:host=$hostName;dbname=$nomeBanco";

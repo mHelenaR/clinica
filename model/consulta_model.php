@@ -12,6 +12,14 @@ create table consulta(
 ); */
 class ConsultaModel{
     public $cons_data, $cons_descricao, $cons_id_paciente, $cons_id_medico; 
+
+    public function cadastrar()
+    {
+        include 'DAO/consulta_dao.php';
+        $dao = new ConsultaDAO(); 
+        $dao->insert($this);
+    }
+
 }
 
 ?>

@@ -11,11 +11,11 @@ switch ($url) {
     case '/':
         RotasController::paginaInicial();
         break;
-    case '/cadastro':
-        RotasController::cadastro();
+    case '/cadastrar':
+        RotasController::cadastrar();
         break;
-    case '/salvar':
-        UsuariosController::cadastrarUsuario();
+    case '/paciente':
+        RotasController::paciente();
         break;
     default:
         echo 'Erro';

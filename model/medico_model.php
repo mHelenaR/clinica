@@ -12,6 +12,13 @@
 
  class MedicoModel{
     public $medi_crm, $medi_especialidade, $medi_id_usuario;
+
+    public function cadastrar()
+    {
+        include 'DAO/medico_dao.php';
+        $dao = new MedicoDAO(); 
+        $dao->insert($this);
+    }
  }
 
 ?>

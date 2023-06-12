@@ -1,37 +1,32 @@
 <?php
 
-include "utils/conexao.php";
-class UsuarioDAO
+class PacienteDAO
 {
     private $conexao;
 
-    public function __construct()
+    public function __construct(PDO $con)
     {
-        $this->conexao = Conexao::ConexaoBanco();
+        $this->conexao = $con;
     }
 
-    public function insert(UsuarioModel $model)
+    public function insert(PacienteModel $model)
     {
-        $sql = "INSERT INTO usuario (usua_nome,usua_email,usua_telefone,usua_senha,usua_tipo) VALUES (?,?,?,?)";
-        $stmt = $this->conexao->prepare($sql); 
-        $stmt->bindValue(1,$model->usua_nome);
-        $stmt->bindValue(2,$model->usua_email);
-        $stmt->bindValue(3,$model->usua_senha);
-        $stmt->bindValue(4,$model->usua_tipo);
-        $stmt->execute(); 
-
+        $sql = "INSERT INTO paciente (paci_cpf,paci_telefone,paci_id_usuario) VALUES (?,?,?)";
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $model->paci_cpf);
+        $stmt->bindValue(2, $model->paci_telefone);
+        $stmt->bindValue(3, $model->paci_id_usuario);
+        $stmt->execute();
     }
 
-    public function update(UsuarioModel $model)
+    public function update(PacienteModel $model)
     {
-        
     }
 
     public function select()
     {
-        $sql = "SELECT * FROM usuario ORDER BY usua_id";
-        $stmt = $this->conexao->prepare($sql);
-        $stmt->execute();
+        // $sql = "SELECT * FROM paciente ORDER BY paci_id";
+        // $stmt = $this->conexao->prepare($sql);
+        // $stmt->execute();
     }
 }
-?>

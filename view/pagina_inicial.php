@@ -10,7 +10,7 @@
 
 <body>
 
-    <form action="view/cad_paciente.php">
+    <form action="/paciente">
         <button type="submit">Paciente</button>
     </form>
 
