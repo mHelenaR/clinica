@@ -22,6 +22,10 @@
         <button type="submit">consulta</button>
     </form>
 
+    <form action="/entrar">
+        <button type="submit">Login</button>
+    </form>
+
 </body>
 
 </html>

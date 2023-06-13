@@ -1,7 +1,6 @@
 <?php
 
 include 'controller/rotas_controller.php';
-include 'controller/usuario_controller.php';
 
 
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -16,6 +15,12 @@ switch ($url) {
         break;
     case '/paciente':
         RotasController::paciente();
+        break;
+    case '/login':
+        RotasController::login();
+        break;
+    case '/entrar':
+        RotasController::entrar();
         break;
     default:
         echo 'Erro';

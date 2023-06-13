@@ -16,4 +16,18 @@ class RotasController
     public static function paciente(){
         include 'view/cad_paciente.php';
     }
+
+    public static function medico(){
+        include 'view/cad_medico.php';
+    }
+
+    public static function entrar(){
+        include 'view/login.php';
+    }
+
+    public static function login(){
+        LoginController::VerificaUsuario();
+        // header('Location: /');
+        // exit();
+    }
 }

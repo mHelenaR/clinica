@@ -22,13 +22,12 @@ class UsuarioDAO
         $stmt->execute();
 
         if ($model->usua_tipo == 'paciente') {
-            
+
             $paciente = new PacienteController;
-            $paciente ->cadastrarPaciente($this->conexao->lastInsertId(), $this->conexao);
-      
+            $paciente->cadastrarPaciente($this->conexao->lastInsertId(), $this->conexao);
         } else if ($model->usua_tipo == 'medico') {
         }
-       // return $this->conexao->lastInsertId();
+        // return $this->conexao->lastInsertId();
     }
 
     public function update(UsuarioModel $model)
@@ -40,5 +39,10 @@ class UsuarioDAO
         $sql = "SELECT * FROM usuario ORDER BY usua_id";
         $stmt = $this->conexao->prepare($sql);
         $stmt->execute();
+    }
+
+    public function login(LoginModel $model)
+    {
+        echo 'Dao do usuario Login';
     }
 }

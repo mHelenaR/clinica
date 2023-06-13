@@ -18,13 +18,11 @@
         <label for="email">E-mail: </label>
         <input id="email" name="email" type="" />
 
-        <?php
-        echo '  <label for="cpf">CPF: </label>
-                <input id="cpf" name="cpf" type="text" />';
-        echo '  <label for="telefone">Telefone: </label>
-                <input id="telefone" name="telefone" type="tel" />';
+        <label for="CRM">CRM: </label>
+        <input id="CRM" name="CRM" type="text" />
 
-        ?>
+        <label for="Especialidade">Especialidade: </label>
+        <input id="Especialidade" name="Especialidade" type="text" />
 
         <label for="senha">Senha: </label>
         <input id="senha" name="senha" type="text" />
@@ -32,7 +30,7 @@
         <button type="submit">Cadastrar</button>
     </form>
 
-
+    
 </body>
 
 </html>
