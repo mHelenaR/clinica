@@ -1,7 +1,6 @@
 <?php
 class RotasController
 {
-
     public static function paginaInicial()
     {
         include 'view/pagina_inicial.php';
@@ -26,7 +25,8 @@ class RotasController
     }
 
     public static function login(){
-        LoginController::VerificaUsuario();
+        teste::VerificaUsuario();
+        
         // header('Location: /');
         // exit();
     }

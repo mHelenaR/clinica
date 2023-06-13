@@ -7,7 +7,9 @@ class LoginModel{
     {
         include 'DAO/usuario_dao.php';
         $dao = new UsuarioDao(); 
-        $dao->login($this);
+        $result = $dao->login($this);
+
+        return $result;
     }
 }
 

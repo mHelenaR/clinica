@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include "utils/conexao.php";
 include 'controller/paciente_controller.php';
@@ -22,12 +23,10 @@ class UsuarioDAO
         $stmt->execute();
 
         if ($model->usua_tipo == 'paciente') {
-
             $paciente = new PacienteController;
             $paciente->cadastrarPaciente($this->conexao->lastInsertId(), $this->conexao);
         } else if ($model->usua_tipo == 'medico') {
         }
-        // return $this->conexao->lastInsertId();
     }
 
     public function update(UsuarioModel $model)
@@ -43,6 +42,26 @@ class UsuarioDAO
 
     public function login(LoginModel $model)
     {
-        echo 'Dao do usuario Login';
+        if (isset($_POST['btn_Entrar'])) {
+            $email = $model->usua_email;
+            $senha = $model->usua_senha;
+
+            $sql = "SELECT * FROM usuario WHERE usua_email = ? AND usua_senha = ?";
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->bindValue(1, $email);
+            $stmt->bindValue(2, $senha);
+            $stmt->execute();
+
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if (!$result) {
+                return false;
+            } else {
+                $_SESSION["tipo_usuario"] = $result['usua_tipo'];
+                return true;
+            }
+        } else {
+            echo 'ta caindo no if, botao errado';
+        }
     }
 }

@@ -17,7 +17,7 @@
         <label for="senha">Senha: </label>
         <input id="senha" name="senha" type="text" />
 
-        <button type="submit">Entrar</button>
+        <button type="submit" name="btn_Entrar">Entrar</button>
     </form>
 </body>
 
