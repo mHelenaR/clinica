@@ -1,4 +1,5 @@
 <?php
+
 class teste
 {
     public static function VerificaUsuario()
@@ -7,10 +8,11 @@ class teste
         $model = new LoginModel();
         $model->usua_email = $_POST['email'];
         $model->usua_senha = $_POST['senha'];
-        $loginResult =$model->loginUsuario();
+        $loginResult = $model->loginUsuario();
 
-        if ($loginResult) {
+        if (isset($loginResult)) {
             $_SESSION['isLoggedIn'] = true;
+            $_SESSION["tipo_usuario"] = $loginResult['usua_tipo']; 
             echo "<script language='javascript' type='text/javascript'>
                     alert('Login realizado com sucesso!!!');
                     window.location.href = '/';

@@ -53,13 +53,8 @@ class UsuarioDAO
             $stmt->execute();
 
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            if (!$result) {
-                return false;
-            } else {
-                $_SESSION["tipo_usuario"] = $result['usua_tipo'];
-                return true;
-            }
+            
+            return $result;
         } else {
             echo 'ta caindo no if, botao errado';
         }
