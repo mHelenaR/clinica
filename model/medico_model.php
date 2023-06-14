@@ -13,10 +13,10 @@
  class MedicoModel{
     public $medi_crm, $medi_especialidade, $medi_id_usuario;
 
-    public function cadastrar()
+    public function cadastrar(PDO $conexao)
     {
         include 'DAO/medico_dao.php';
-        $dao = new MedicoDAO(); 
+        $dao = new MedicoDAO($conexao); 
         $dao->insert($this);
     }
  }

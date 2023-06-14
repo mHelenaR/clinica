@@ -27,4 +27,5 @@ class RotasController
     public static function login(){
         LoginController::VerificaUsuario();
     }
+
 }

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +13,15 @@
 
 <body>
 
+    <?php
+    echo $_SESSION["array_usuario"]['usua_tipo'];
+    ?>
+
     <form action="/paciente">
+        <button type="submit">Paciente</button>
+    </form>
+
+    <form action="view/cadastro.php">
         <button type="submit">Paciente</button>
     </form>
 

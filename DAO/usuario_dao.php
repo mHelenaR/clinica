@@ -3,6 +3,7 @@ session_start();
 
 include "utils/conexao.php";
 include 'controller/paciente_controller.php';
+include 'controller/medico_controller.php';
 class UsuarioDAO
 {
     private $conexao;
@@ -26,6 +27,8 @@ class UsuarioDAO
             $paciente = new PacienteController;
             $paciente->cadastrarPaciente($this->conexao->lastInsertId(), $this->conexao);
         } else if ($model->usua_tipo == 'medico') {
+            $medico = new MedicoController;
+            $medico->cadastrarMedico($this->conexao->lastInsertId(), $this->conexao);
         }
     }
 

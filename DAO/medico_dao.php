@@ -1,6 +1,5 @@
 <?php
 
-include "utils/conexao.php";
 class MedicoDAO
 {
     /*    
@@ -10,9 +9,9 @@ class MedicoDAO
 
     private $conexao;
 
-    public function __construct()
+    public function __construct(PDO $con)
     {
-        $this->conexao = Conexao::ConexaoBanco();
+        $this->conexao = $con;
     }
 
     public function insert(MedicoModel $model)
