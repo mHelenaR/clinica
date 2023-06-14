@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastre-se</title>
 </head>
-
 <body>
     <form method="post" action="#">
         <label for="nome">Nome medico: </label>

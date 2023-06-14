@@ -1,6 +1,5 @@
 <?php
-
-class teste
+class LoginController
 {
     public static function VerificaUsuario()
     {
@@ -10,9 +9,9 @@ class teste
         $model->usua_senha = $_POST['senha'];
         $loginResult = $model->loginUsuario();
 
-        if (isset($loginResult)) {
-            $_SESSION['isLoggedIn'] = true;
-            $_SESSION["tipo_usuario"] = $loginResult['usua_tipo']; 
+        if ($loginResult != '') {
+            $_SESSION['isLogged'] = true;
+            $_SESSION["array_usuario"] = $loginResult; 
             echo "<script language='javascript' type='text/javascript'>
                     alert('Login realizado com sucesso!!!');
                     window.location.href = '/';
@@ -20,10 +19,11 @@ class teste
             exit();
         } else {
             echo "<script language='javascript' type='text/javascript'>
-                    alert('Login realizado com sucesso!!!');
-                    window.location.href = '/entrar'';
+                    alert('E-Mail ou Senha errados!!!');
+                    window.location.href = '/entrar';
                     </script>";
             exit();
         }
+        
     }
 }

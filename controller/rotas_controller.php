@@ -25,9 +25,6 @@ class RotasController
     }
 
     public static function login(){
-        teste::VerificaUsuario();
-        
-        // header('Location: /');
-        // exit();
+        LoginController::VerificaUsuario();
     }
 }
