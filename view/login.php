@@ -20,17 +20,16 @@
         }
 
         .meu-carrossel {
-            margin: 20px;
+        
             width: 100%;
             border-radius: 20px;
             overflow: hidden;
-            
-            position: relative;
+            height: 700px;
             background-color: aquamarine;
 
         }
 
-        
+    
     </style>
 </head>
 
@@ -39,10 +38,12 @@
         <div class="container-fluid">
             <div class="row">
 
-                <div class="col-sm-12 col-md-8 d-flex justify-content-center">
+                <div class="col-sm-12 col-md-8 d-flex justify-content-center align-items-center">
+
                     <div id="meuCarrossel" class="carousel slide meu-carrossel" data-ride="carousel">
                         <?php include 'components/carrossel.php' ?>
                     </div>
+
                 </div>
 
                 <div class="col-sm-12 col-md-4 d-flex justify-content-center">
