@@ -15,7 +15,7 @@
     </div>
 </div>
 <a class="carousel-control-prev" href="#meuCarrossel" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" style="background-color: black;" aria-hidden="true"></span>
+    <span class="carousel-control-prev-icon"  aria-hidden="true"></span>
     <span class="sr-only">Anterior</span>
 </a>
 <a class="carousel-control-next" href="#meuCarrossel" role="button" data-slide="next">
