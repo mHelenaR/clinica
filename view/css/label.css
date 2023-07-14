@@ -9,3 +9,24 @@
     font-weight: bold; 
     line-height: 0.9;
   }
+
+  .label1-grafico{
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-top: 20px;
+    line-height: 0.9;
+  }
+
+  .label2-grafico{
+    margin-left: 20px;
+    font-weight: bold;
+    line-height: 0.9;
+  }
+  .label-pacientes{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    line-height: 0.9;
+    font-size: 20px;
+  }

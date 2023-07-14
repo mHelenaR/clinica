@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +12,9 @@
 </head>
 
 <body>
+    <?php
+    include 'components/menu_bar.php';
+    ?>
     <form method="post" action="#">
         <label for="nome">Nome: </label>
         <input id="nome" name="nome" type="text" />

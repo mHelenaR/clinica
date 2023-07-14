@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +12,9 @@
 </head>
 
 <body>
+<?php
+    include 'components/menu_bar.php';
+    ?>
     <form method="post" action="/cadastrar">
         <input id="tipo" name="tipo" type="hidden" value="medico" />
 
