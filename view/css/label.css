@@ -1,0 +1,11 @@
+.label-destaque {
+    font-weight: bold;
+    font-size: 40px;
+    color: #4D78CA; 
+    line-height: 0.9;
+  }
+
+  .label-login{
+    font-weight: bold; 
+    line-height: 0.9;
+  }
