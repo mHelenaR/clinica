@@ -36,7 +36,7 @@ session_start();
             border-radius: 20px
         }
 
-        .container-grande {
+        .container-grande.coluna1 {
             width: 100%;
             height: 75vh;
             background-color: #fff;
@@ -46,10 +46,27 @@ session_start();
             display: flex;
             justify-content: center;
             align-items: start;
-            
+
+        }
+        .container-grande.coluna2 {
+            width: 100%;
+            height: 75vh;
+            background-color: #fff;
+            border-radius: 10px;
+            margin: 50px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: start;
+
         }
 
-        .grafico-container {
+        .grafico-container.coluna1 {
+            width: 100%;
+            height: auto;
+
+        }
+        .grafico-container.coluna2 {
             width: 100%;
             height: auto;
 
@@ -84,37 +101,30 @@ session_start();
                     </div>
                 </div>
                 <div class="col-sm-4 col-md-4 d-flex justify-content-center">
-                    <div class="container-grande">
-                        <div class="grafico-container">
+                    <div class="container-grande coluna1">
+                        <div class="grafico-container coluna1">
                             <label class="label1-grafico">Especialidades:</label><br>
                             <label class="label2-grafico">Contagem de consultas marcadas em 2023:</label><br><br><br>
                             <?php
-                            include 'utils/graficoanel.php';
+                            include 'utils/graficoanelconsultas.php';
                             ?>
 
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-4 col-md-4 d-flex justify-content-center">
-                    <form action="/paciente">
-                        <button type="submit">Paciente</button>
-                    </form>
+                    <div class="container-grande coluna2">
+                        
+                        <div class="grafico-container coluna2">
+                            <label class="label1-grafico">Médicos:</label><br>
+                            <label class="label2-grafico">Contagem de consultas marcadas em 2023:</label><br><br><br>
+                            <?php
+                            include 'utils/graficoanelmedicos.php';
+                            ?>
 
-                    <form action="view/cadastro.php">
-                        <button type="submit">Paciente</button>
-                    </form>
+                        </div>
+                    </div>
 
-                    <form action="view/cad_medico.php">
-                        <button type="submit">medico</button>
-                    </form>
-
-                    <form action="view/cad_consulta.php">
-                        <button type="submit">consulta</button>
-                    </form>
-
-                    <form action="/entrar">
-                        <button type="submit">Login</button>
-                    </form>
                 </div>
             </div>
         </div>

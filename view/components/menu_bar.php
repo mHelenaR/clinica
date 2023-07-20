@@ -22,7 +22,7 @@
                     <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                         <li><a href="/" class="nav-link px-2 text-white">Página Inicial</a></li>
                         <li><a href="/paciente" class="nav-link px-2 text-white">Pacientes</a></li>
-                        <li><a href="/paciente" class="nav-link px-2 text-white">Médicos</a></li>
+                        <li><a href="/medico" class="nav-link px-2 text-white">Médicos</a></li>
                         <li><a href="/consulta" class="nav-link px-2 text-white">Consultas</a></li>
                     </ul>
                     <div class="text-end">

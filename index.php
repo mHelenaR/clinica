@@ -18,6 +18,9 @@ switch ($url) {
     case '/paciente':
         RotasController::paciente();
         break;
+    case '/medico':
+        RotasController::medico();
+        break;
     case '/login':
         RotasController::login();
         break;

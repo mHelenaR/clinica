@@ -30,3 +30,10 @@
     line-height: 0.9;
     font-size: 20px;
   }
+
+  .paciente.title{
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 22px;
+  }
