@@ -10,22 +10,28 @@
  
  */
 
- class MedicoModel{
-    public $medi_crm, $medi_especialidade, $medi_id_usuario;
+class MedicoModel
+{
+  public $medi_crm, $medi_especialidade, $medi_id_usuario;
 
-    public function cadastrar(PDO $conexao)
-    {
-        include 'DAO/medico_dao.php';
-        $dao = new MedicoDAO($conexao); 
-        $dao->insert($this);
-    }
+  public function cadastrar(PDO $conexao)
+  {
+    include 'DAO/medico_dao.php';
+    $dao = new MedicoDAO($conexao);
+    $dao->insert($this);
+  }
 
-    public function alterar(PDO $conexao)
-    {
-      include 'DAO/medico_dao.php';
-      $dao = new MedicoDAO($conexao); 
-      $dao->alterar($this);
-    }
- }
+  public function alterar(PDO $conexao)
+  {
+    include 'DAO/medico_dao.php';
+    $dao = new MedicoDAO($conexao);
+    $dao->alterar($this);
+  }
 
-?>
+  public function excluir(PDO $conexao)
+  {
+    include 'DAO/medico_dao.php';
+    $dao = new MedicoDAO($conexao);
+    $dao->excluir($this);
+  }
+}

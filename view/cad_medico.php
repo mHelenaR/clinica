@@ -89,7 +89,7 @@
                                 <?php foreach ($_SESSION['medicos'] as $item) : ?>
                                     <div class="colored-container2">
                                         <label class="label-perfil"><?php echo $item->usua_nome ?></label>
-                                        <button class="botao-perfil" name="mediPerfil" type="button" data-crm="<?php echo $item->medi_crm ?>" data-especialidade="<?php echo $item->medi_especialidade ?>" data-email="<?php echo $item->usua_email ?>" data-senha="<?php echo $item->usua_senha ?>" data-id_medi="<?php echo $item->usua_id ?>" data-nomeMedi="<?php echo $item->usua_nome ?>">Perfil</button>
+                                        <button class="botao-perfil" type="button" data-crm="<?php echo $item->medi_crm ?>" data-especialidade="<?php echo $item->medi_especialidade ?>" data-email="<?php echo $item->usua_email ?>" data-senha="<?php echo $item->usua_senha ?>" data-id_medi="<?php echo $item->usua_id ?>" data-nomeMedi="<?php echo $item->usua_nome ?>">Perfil</button>
                                     </div>
                                 <?php endforeach ?>
                             </div>
@@ -182,6 +182,7 @@
         // Função para preencher o nome no input com id "nome" e guardar o ID no input escondido
         function preencherNomeEID(nomeMedico, idMedico, especiaMedico, crmMedico, emailMedico, senhaMedico) {
             document.getElementById("nomeMedi").value = nomeMedico;
+
             document.getElementById("id_medi").value = idMedico;
             document.getElementById("crmMedi").value = crmMedico;
             document.getElementById("especialidadeMedi").value = especiaMedico;
@@ -194,14 +195,15 @@
         for (var i = 0; i < botoesPerfil.length; i++) {
             botoesPerfil[i].addEventListener("click", function() {
                 var nomeMedico = this.getAttribute("data-nomeMedi");
-                var idMedico = this.getAttribute("data-crm");
-                var crmMedico = this.getAttribute("data-especialidade");
-                var especiaMedico = this.getAttribute("data-email");
-                var emailMedico = this.getAttribute("data-senha");
-                var senhaMedico = this.getAttribute("data-id_paci");
-                preencherNomeEID(nomeMedico, idMedico, especiaMedico, crmMedico, emailMedico, senhaMedico);
+                var idMedico = this.getAttribute("data-id_medi");
+                var crmMedico = this.getAttribute("data-crm");
+                var especiaMedico = this.getAttribute("data-especialidade");
+                var emailMedico = this.getAttribute("data-email");
+                var senhaMedico = this.getAttribute("data-senha");
+                preencherNomeEID(nomeMedico, idMedico, crmMedico, especiaMedico, emailMedico, senhaMedico);
             });
         }
+     
     </script>
 </body>
 

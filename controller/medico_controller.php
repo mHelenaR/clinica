@@ -6,8 +6,8 @@ class MedicoController{
     {
         include 'model/medico_model.php';
         $paciente = new MedicoModel();
-        $paciente->medi_crm = $_POST['CRM'];
-        $paciente->medi_especialidade = $_POST['especialidade'];
+        $paciente->medi_crm = $_POST['crmMedi'];
+        $paciente->medi_especialidade = $_POST['especialidadeMedi'];
         $paciente->medi_id_usuario = $id;
         $paciente->cadastrar($conexao);
     }
@@ -21,7 +21,11 @@ class MedicoController{
         $paciente->medi_id_usuario = $id;
         $paciente->alterar($conexao);
     }
+    public static function excluirMedico(String $id, PDO $conexao)
+    {
+        include 'model/medico_model.php';
+        $paciente = new MedicoModel();
+        $paciente->medi_id_usuario = $id;
+        $paciente->excluir($conexao);
+    }
 }
-
-
-?>

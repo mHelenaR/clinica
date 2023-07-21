@@ -5,7 +5,7 @@ class RotasController
     {
         include 'view/pagina_inicial.php';
     }
-    public static function cadastrar()
+    public static function cadastrarPaciente()
     {
         if (isset($_POST['btn_alterarPaci'])) {
             UsuariosController::alterarUsuario();
@@ -25,7 +25,7 @@ class RotasController
         } else if (isset($_POST['btn_excluirMedi'])) {
             UsuariosController::excluirUsuario();
         } else if (isset($_POST['btn_cadastrarMedi'])) {
-            UsuariosController::cadastrarUsuario();
+            UsuariosController::cadastrarMedico();
         }
         header('location: /medico');
         exit;

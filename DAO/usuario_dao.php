@@ -15,7 +15,7 @@ class UsuarioDAO
 
     public function insert(UsuarioModel $model)
     {
-        if (isset($_POST['btn_cadastrarPaci'])) {
+        if (isset($_POST['btn_cadastrarPaci'])or isset($_POST['btn_cadastrarMedi'])) {
             $sql = "INSERT INTO usuario (usua_nome,usua_email,usua_senha,usua_tipo) VALUES (?,?,?,?)";
             $stmt = $this->conexao->prepare($sql);
             $stmt->bindValue(1, $model->usua_nome);
@@ -36,6 +36,7 @@ class UsuarioDAO
 
     public function alterar(UsuarioModel $model)
     {
+
         if (isset($_POST['btn_alterarPaci']) or isset($_POST['btn_alterarMedi'])) {
             $sql = "UPDATE usuario SET usua_nome = ?, usua_email = ?, usua_senha = ? WHERE usua_id = ?";
             $stmt = $this->conexao->prepare($sql);
@@ -49,6 +50,7 @@ class UsuarioDAO
                 $paciente = new PacienteController;
                 $paciente->alterarPaciente($model->usua_id, $this->conexao);
             } else if ($model->usua_tipo == 'medico') {
+
                 $medico = new MedicoController;
                 $medico->alterarMedico($model->usua_id, $this->conexao);
             }
@@ -57,13 +59,13 @@ class UsuarioDAO
 
     public function excluir(UsuarioModel $model)
     {
-        if (isset($_POST['btn_excluirPaci'])) {
+        if (isset($_POST['btn_excluirPaci']) or isset($_POST['btn_excluirMedi'])) {
             if ($model->usua_tipo == 'paciente') {
                 $paciente = new PacienteController;
                 $paciente->excluirPaciente($model->usua_id, $this->conexao);
             } else if ($model->usua_tipo == 'medico') {
                 $medico = new MedicoController;
-                //$medico->cadastrarMedico($model->usua_id, $this->conexao);
+                $medico->excluirMedico($model->usua_id, $this->conexao);
             }
 
             $sql = "DELETE FROM usuario  WHERE usua_id = ?";

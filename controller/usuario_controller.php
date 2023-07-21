@@ -17,6 +17,22 @@ class UsuariosController
                     </script>";
         exit();
     }
+    public static function cadastrarMedico()
+    {
+        include 'model/usuario_model.php';
+        $cadUsu = new UsuarioModel();
+        $cadUsu->usua_nome = $_POST['nomeMedi'];
+        $cadUsu->usua_id = $_POST['id_medi'];
+        $cadUsu->usua_email = $_POST['emailMedi'];
+        $cadUsu->usua_senha = $_POST['senhaMedi'];
+        $cadUsu->usua_tipo = $_POST['tipo'];
+        $cadUsu->cadastrar();
+        echo "<script language='javascript' type='text/javascript'>
+                    alert('Registro alterado com sucesso!!!');
+                    window.location.href = '/medico';
+                    </script>";
+        exit();
+    }
 
     public static function carregaLista()
     {
@@ -29,8 +45,8 @@ class UsuariosController
     public static function carregaListaMedico()
     {
         include 'model/usuario_model.php';
-        $listaUsu  = new UsuarioModel();
-        $listaMedicos = $listaUsu->getAllRowsMedico();
+        $listaUsus  = new UsuarioModel();
+        $listaMedicos = $listaUsus->getAllRowsMedico();
         $_SESSION["medicos"] = $listaMedicos;
     }
 
@@ -71,13 +87,25 @@ class UsuariosController
     {
         include 'model/usuario_model.php';
         $cadUsu = new UsuarioModel();
-        $cadUsu->usua_id = $_POST['id_paci'];
+        if ($_POST['tipo'] == 'paciente') {
+            $cadUsu->usua_id = $_POST['id_paci'];
+        } else if ($_POST['tipo'] == 'medico') {
+            $cadUsu->usua_id = $_POST['id_medi'];
+        }
         $cadUsu->usua_tipo = $_POST['tipo'];
         $cadUsu->excluir();
-        echo "<script language='javascript' type='text/javascript'>
-                alert('Registro excluido com sucesso!!!');
-                window.location.href = '/paciente';
-                </script>";
+        if ($_POST['tipo'] == 'paciente') {
+            echo "<script language='javascript' type='text/javascript'>
+                    alert('Registro excluido com sucesso!!!');
+                    window.location.href = '/paciente';
+                    </script>";
+        } else if ($_POST['tipo'] == 'medico') {
+            echo "<script language='javascript' type='text/javascript'>
+                    alert('Registro excluido com sucesso!!!');
+                    window.location.href = '/medico';
+                    </script>";
+        }
+
         exit();
     }
 }

@@ -13,7 +13,7 @@ switch ($url) {
         RotasController::paginaInicial();
         break;
     case '/cadastrar':
-        RotasController::cadastrar();
+        RotasController::cadastrarPaciente();
         break;
     case '/cadastrar-medico':
         RotasController::cadastrarMedico();
