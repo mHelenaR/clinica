@@ -16,6 +16,19 @@ class PacienteModel
         $dao = new PacienteDAO($conexao); 
         $dao->insert($this);
     }
+    public function alterar(PDO $conexao)
+    {
+        include 'DAO/paciente_dao.php';
+        $dao = new PacienteDAO($conexao); 
+        $dao->alterar($this);
+    }
+
+    public function excluir(PDO $conexao)
+    {
+        include 'DAO/paciente_dao.php';
+        $dao = new PacienteDAO($conexao); 
+        $dao->excluir($this);
+    }
 }
 
 ?>

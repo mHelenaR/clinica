@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,7 +72,7 @@ session_start();
     </style>
 
     <script>
-      
+
     </script>
 </head>
 
@@ -88,17 +88,14 @@ session_start();
                         <div class="container-lista d-flex flex-column">
                             <label class="paciente title pesquisa">Pacientes Cadastrados</label>
                             <input class="input-arredondado3" id="pesquisa" name="pesquisa" type="text" placeholder="Pesquisar" /><br>
-                            <button class="botao-pesquisa" type="submit" name="btn-pesquisa">Pesquisar</button>
                             <hr style="border: 1px solid #BFBFBF; width: 100%; margin-top: 10px; margin-bottom: 10px;">
                             <div class="container3">
-                                <?php
-                                for ($i = 0; $i < 10; $i++) {
-                                    echo '<div class="colored-container2">
-                                        <label class="label-perfil">nome</label>
-                                        <button class="botao-perfil" type="submit" name="perfil_paciente">Perfil</button>
-                                    </div>';
-                                }
-                                ?>
+                                <?php foreach ($_SESSION['pacientes'] as $item) : ?>
+                                    <div class="colored-container2">
+                                        <label class="label-perfil"><?php echo $item->usua_nome ?></label>
+                                        <button class="botao-perfil" type="button" data-cpf="<?php echo $item->paci_cpf ?>" data-telefone="<?php echo $item->paci_telefone ?>" data-email="<?php echo $item->usua_email ?>" data-senha="<?php echo $item->usua_senha ?>" data-id_paci="<?php echo $item->usua_id ?>" data-nome="<?php echo $item->usua_nome ?>">Perfil</button>
+                                    </div>
+                                <?php endforeach ?>
                             </div>
                         </div>
                     </div>
@@ -114,6 +111,7 @@ session_start();
                         <div class="container-form">
                             <form method="post" action="/cadastrar">
                                 <input id="tipo" name="tipo" type="hidden" value="paciente" />
+                                <input id="id_paci" name="id_paci" type="hidden" value="" />
 
                                 <div class="row" style="margin: 10px;">
                                     <label class="paciente title">Cadastro de Pacientes</label>
@@ -147,9 +145,11 @@ session_start();
                                             <input class="input-arredondado2" id="senha" name="senha" type="text" placeholder="Insira uma senha para o paciente" />
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-9">
                                         <div class="form-group ">
-                                            <button type="submit" name="btn_cadastrar" id="btn_cadastrar" class="botao-form" >Cadastrar</button>
+                                            <button type="submit" name="btn_cadastrarPaci" id="btn_cadastrarPaci" class="botao-form">Cadastrar</button>
+                                            <button type="submit" name="btn_alterarPaci" id="btn_alterarPaci" class="botao-form">Alterar</button>
+                                            <button type="submit" name="btn_excluirPaci" id="btn_excluirPaci" class="botao-form">Excluir</button>
                                         </div>
                                     </div>
                                 </div>
@@ -160,6 +160,54 @@ session_start();
             </div>
         </div>
     </main>
+    <script>
+        // Função para filtrar os resultados com base no valor inserido no campo de pesquisa
+        function filtrarPacientes() {
+            var input, filter, container, pacientes, paciente, nome;
+            input = document.getElementById('pesquisa');
+            filter = input.value.toUpperCase();
+            container = document.querySelector('.container3');
+            pacientes = container.getElementsByClassName('colored-container2');
+
+            for (var i = 0; i < pacientes.length; i++) {
+                paciente = pacientes[i];
+                nome = paciente.querySelector('.label-perfil').innerText;
+
+                if (nome.toUpperCase().indexOf(filter) > -1) {
+                    paciente.style.display = '';
+                } else {
+                    paciente.style.display = 'none';
+                }
+            }
+        }
+        document.getElementById('pesquisa').addEventListener('input', filtrarPacientes);
+
+        // Função para preencher o nome no input com id "nome" e guardar o ID no input escondido
+        function preencherNomeEID(nomePaciente, idPaciente,cpfPaciente,telefonePaciente,emailPaciente,senhaPaciente) {
+            document.getElementById("nome").value = nomePaciente;
+            document.getElementById("id_paci").value = idPaciente;
+            document.getElementById("cpf").value = cpfPaciente;
+            document.getElementById("telefone").value = telefonePaciente;
+            document.getElementById("email").value = emailPaciente;
+            document.getElementById("senha").value = senhaPaciente;
+        }
+
+
+
+        // Evento de escuta para acionar a função de preencher o nome e o ID quando o botão "Perfil" é clicado
+        var botoesPerfil = document.getElementsByClassName("botao-perfil");
+        for (var i = 0; i < botoesPerfil.length; i++) {
+            botoesPerfil[i].addEventListener("click", function() {
+                var nomePaciente = this.getAttribute("data-nome");
+                var idPaciente = this.getAttribute("data-id_paci");
+                var cpfPaciente = this.getAttribute("data-cpf");
+                var telefonePaciente = this.getAttribute("data-telefone");
+                var emailPaciente = this.getAttribute("data-email");
+                var senhaPaciente = this.getAttribute("data-senha");
+                preencherNomeEID(nomePaciente, idPaciente,cpfPaciente,telefonePaciente,emailPaciente,senhaPaciente);
+            });
+        }
+    </script>
 </body>
 
 </html>

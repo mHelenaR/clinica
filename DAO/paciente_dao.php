@@ -19,14 +19,21 @@ class PacienteDAO
         $stmt->execute();
     }
 
-    public function update(PacienteModel $model)
+    public function alterar(PacienteModel $model)
     {
-    }
+        $sql = "UPDATE paciente  SET paci_cpf = ?, paci_telefone = ?  WHERE paci_id_usuario = ?";
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $model->paci_cpf);
+        $stmt->bindValue(2, $model->paci_telefone);
+        $stmt->bindValue(3, $model->paci_id_usuario);
 
-    public function select()
+        $stmt->execute();
+    }
+    public function excluir(PacienteModel $model)
     {
-        // $sql = "SELECT * FROM paciente ORDER BY paci_id";
-        // $stmt = $this->conexao->prepare($sql);
-        // $stmt->execute();
+        $sql = "DELETE FROM paciente WHERE paci_id_usuario = ?";
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $model->paci_id_usuario);
+        $stmt->execute();
     }
 }

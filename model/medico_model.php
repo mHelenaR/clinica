@@ -19,6 +19,13 @@
         $dao = new MedicoDAO($conexao); 
         $dao->insert($this);
     }
+
+    public function alterar(PDO $conexao)
+    {
+      include 'DAO/medico_dao.php';
+      $dao = new MedicoDAO($conexao); 
+      $dao->alterar($this);
+    }
  }
 
 ?>

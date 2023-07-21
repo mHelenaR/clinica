@@ -22,12 +22,16 @@ class MedicoDAO
         $stmt->bindValue(2,$model->medi_especialidade);
         $stmt->bindValue(3,$model->medi_id_usuario);
         $stmt->execute(); 
-
     }
 
-    public function update(MedicoModel $model)
+    public function alterar(MedicoModel $model)
     {
-        
+        $sql = "UPDATE medico  SET medi_crm = ?, medi_especialidade = ?  WHERE medi_id_usuario = ?";
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1,$model->medi_crm);
+        $stmt->bindValue(2,$model->medi_especialidade);
+        $stmt->bindValue(3,$model->medi_id_usuario);
+        $stmt->execute();
     }
 
     public function select()
@@ -37,4 +41,3 @@ class MedicoDAO
         $stmt->execute();
     }
 }
-?>

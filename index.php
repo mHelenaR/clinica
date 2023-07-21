@@ -15,6 +15,9 @@ switch ($url) {
     case '/cadastrar':
         RotasController::cadastrar();
         break;
+    case '/cadastrar-medico':
+        RotasController::cadastrarMedico();
+        break;
     case '/paciente':
         RotasController::paciente();
         break;
