@@ -31,9 +31,29 @@
     font-size: 20px;
   }
 
+  .input-pacientes{
+    font-weight: bold;
+    margin-left: 10px;
+    font-size: 15px;
+  }
+
   .paciente.title{
     font-weight: bold;
-    margin-top: 10px;
     margin-left: 20px;
+    margin-top: 10px;
+    padding: 10px;
     font-size: 22px;
+  }
+
+  .paciente.title.pesquisa{
+    font-weight: bold;
+    margin: 10px;
+    padding: 10px;
+    font-size: 20px;
+  }
+  
+  .label-perfil{
+    font-weight: bold;
+    margin: 12px;
+    font-size: 15px;
   }

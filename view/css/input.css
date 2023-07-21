@@ -5,3 +5,21 @@
     font-size: 16px;
     width: 300px;
 }
+
+.input-arredondado2 {
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 100%;
+    margin: 10px;
+    
+}
+
+.input-arredondado3 {
+    border-radius: 50px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 100%;
+    padding: 10px;
+}

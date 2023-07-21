@@ -25,17 +25,6 @@ session_start();
             text-align: center;
         }
 
-
-
-        .colored-container {
-            width: 90%;
-            height: 80px;
-            margin: 10px;
-            background: rgba(0, 70.55, 176.37, 0.60);
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            border-radius: 20px
-        }
-
         .container-grande.coluna1 {
             width: 100%;
             height: 75vh;

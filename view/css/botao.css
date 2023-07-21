@@ -32,3 +32,53 @@
     margin-top: 20px;
 }
 
+.botao-form {
+    border-radius: 50px;
+    padding: 8px 30px;
+    background-color: #2C416C;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    width: auto;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.botao-perfil{
+    border-radius: 10px;
+    padding: 8px ;
+    background-color: #2C416C;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    width: auto;
+}
+
+.botao-pesquisa{
+    border-radius: 10px;
+    padding: 8px ;
+    background-color: #2C416C;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    width: auto;
+}
+
