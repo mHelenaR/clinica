@@ -31,6 +31,13 @@ class RotasController
         exit;
     }
 
+    public static function cadastrarConsulta()
+    {
+        ConsultaController::cadastrarConsulta();
+        header('location: /consulta');
+        exit;
+    }
+
     public static function paciente()
     {
         UsuariosController::carregaLista();
@@ -51,5 +58,11 @@ class RotasController
     public static function login()
     {
         LoginController::VerificaUsuario();
+    }
+
+    public static function consulta()
+    {
+        ConsultaController::carregaListaConsulta();
+        include 'view/cad_consulta.php';
     }
 }

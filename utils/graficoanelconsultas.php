@@ -8,7 +8,7 @@
     <style>
         #chart {
             width: 300px;
-            height: 300px;
+            height: 200px;
         }
 
         #legend {

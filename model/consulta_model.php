@@ -19,7 +19,13 @@ class ConsultaModel{
         $dao = new ConsultaDAO(); 
         $dao->insert($this);
     }
+    public function getAllRows()
+    {
+        include 'DAO/consulta_dao.php';
+        $dao = new ConsultaDAO();
+        $result = $dao->selectConsulta();
+
+        return $result;
+    }
 
 }
-
-?>
